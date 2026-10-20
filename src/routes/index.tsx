@@ -297,8 +297,8 @@ function Index() {
             <h2 className="display-xl lg:col-span-8"><Lines lines={["Two scientists.", <span className="hero-sub">One name.</span>]} /></h2>
             <p className="body-lg reveal self-end text-paper/60 lg:col-span-4">GodHeimer carries the names of two physicists — one who reached for space, one who shaped modern defense. Both sides define what we build.</p>
           </div>
-          <div className="mt-24 grid gap-10 md:grid-cols-2">
-            <figure className="founder-card reveal" style={{ transitionDelay: "0ms" }}>
+          <div className="origin-grid mt-24">
+            <figure className="founder-card origin-a reveal" style={{ transitionDelay: "0ms" }}>
               <OriginPanel src={goddardImg.url} alt="Robert H. Goddard" code="GH-01" tag="SPACE" coords="42.2626° N / 71.8023° W" year="1926" />
               <figcaption className="mt-8">
                 <div className="flex items-baseline justify-between gap-6">
@@ -309,7 +309,7 @@ function Index() {
                 <p className="body-copy mt-4 max-w-md text-paper/60">Father of modern rocket propulsion. He launched the first liquid-fueled rocket in 1926 and proved spaceflight was possible — the space technology side of GodHeimer.</p>
               </figcaption>
             </figure>
-            <figure className="founder-card reveal" style={{ transitionDelay: "120ms" }}>
+            <figure className="founder-card origin-b reveal" style={{ transitionDelay: "120ms" }}>
               <OriginPanel src={oppenheimerImg.url} alt="J. Robert Oppenheimer" code="GH-02" tag="DEFENSE" coords="35.8800° N / 106.3031° W" year="1943" />
               <figcaption className="mt-8">
                 <div className="flex items-baseline justify-between gap-6">
@@ -333,6 +333,8 @@ function Index() {
             <div className="reveal founder-portrait-wrap md:col-span-5 md:row-span-2 md:self-center lg:col-span-4 lg:row-span-1 lg:self-end">
               <div className="founder-portrait">
                 <img src={bossPortrait.url} alt="Natthakorn “Boss” Mueangsangsri, Founder & CEO of GodHeimer Technologies" loading="lazy" className="founder-portrait-img" />
+                <span className="hud-corner tl" /><span className="hud-corner tr" /><span className="hud-corner bl" /><span className="hud-corner br" />
+                <span className="portrait-tag mono">GH-00 // FOUNDER</span>
               </div>
             </div>
             <div className="md:col-span-7 lg:col-span-6">

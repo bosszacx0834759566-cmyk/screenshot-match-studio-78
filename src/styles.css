@@ -300,11 +300,21 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; heig
 .founder-card:hover .founder-media img { filter: grayscale(.2) contrast(1.02); transform: scale(1.03); }
 
 /* Origin panels (The Name section) */
-.origin-panel { --p: 0; position: relative; aspect-ratio: 1 / 1; color: var(--paper); }
+.origin-grid { display: grid; gap: 64px; }
+@media (min-width: 768px) {
+  .origin-grid { grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: start; }
+  .origin-a { grid-column: 1 / span 7; }
+  .origin-b { grid-column: 8 / span 5; margin-top: 40vh; }
+  .origin-b .origin-panel { aspect-ratio: 3 / 4; }
+}
+.origin-panel { --p: 0; position: relative; aspect-ratio: 4 / 5; color: var(--paper); }
 .origin-aperture { position: absolute; inset: 0; overflow: hidden; background: var(--ink-2);
   clip-path: inset(calc((1 - var(--p)) * 14%) calc((1 - var(--p)) * 10%)); }
-.origin-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;
-  filter: grayscale(1) contrast(1.05); transition: filter 1.2s var(--ease-out); }
+.origin-img { position: absolute; inset: -12% 0; width: 100%; height: 124%; object-fit: cover; object-position: center;
+  transform: translateY(calc((0.5 - var(--p)) * 14%)) scale(calc(1.15 - var(--p) * 0.15));
+  filter: grayscale(1) contrast(1.08); transition: filter 1.2s var(--ease-out); will-change: transform; }
+.origin-panel::before { content: ""; position: absolute; z-index: 2; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, oklch(1 0 0 / 4%) 0 1px, transparent 1px 3px); mix-blend-mode: overlay; }
 .origin-panel:hover .origin-img { filter: grayscale(.6) contrast(1.05); }
 .origin-aperture::after { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, oklch(0 0 0 / 45%), transparent 22%, transparent 75%, oklch(0 0 0 / 55%)); }
@@ -314,9 +324,15 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; heig
 @media (prefers-reduced-motion: reduce) { .origin-aperture, .origin-img { clip-path: none; transform: none; } }
 
 /* ===== Founder portrait (The Name / leadership section) ===== */
-.founder-portrait { position: relative; width: 100%; max-width: 260px; margin-inline: auto; }
-.founder-portrait-img { display: block; width: 100%; height: auto;
-  filter: contrast(1.06) saturate(1.06); transition: transform .8s var(--ease-out); }
-.founder-portrait-wrap:hover .founder-portrait-img { transform: scale(1.02); }
-@media (min-width: 640px) { .founder-portrait { max-width: 320px; } }
+.founder-portrait { position: relative; width: 100%; max-width: 280px; margin-inline: auto; aspect-ratio: 3 / 4; overflow: hidden; background: var(--ink-2); }
+.founder-portrait-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top;
+  filter: grayscale(1) contrast(1.1); transition: transform 1.2s var(--ease-out), filter 1.2s var(--ease-out); }
+.founder-portrait-wrap:hover .founder-portrait-img { transform: scale(1.04); filter: grayscale(0) contrast(1.05); }
+.hud-corner { position: absolute; width: 18px; height: 18px; border: 0 solid var(--paper); z-index: 2; pointer-events: none; }
+.hud-corner.tl { top: 10px; left: 10px; border-top-width: 1px; border-left-width: 1px; }
+.hud-corner.tr { top: 10px; right: 10px; border-top-width: 1px; border-right-width: 1px; }
+.hud-corner.bl { bottom: 10px; left: 10px; border-bottom-width: 1px; border-left-width: 1px; }
+.hud-corner.br { bottom: 10px; right: 10px; border-bottom-width: 1px; border-right-width: 1px; }
+.portrait-tag { position: absolute; z-index: 2; left: 16px; bottom: 16px; font-size: 10px; letter-spacing: .1em; color: var(--paper); opacity: .85; }
+@media (min-width: 640px) { .founder-portrait { max-width: 340px; } }
 @media (min-width: 768px) { .founder-portrait { max-width: none; margin-inline: 0; } }
