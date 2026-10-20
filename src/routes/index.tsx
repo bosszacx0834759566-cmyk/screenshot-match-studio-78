@@ -159,6 +159,7 @@ function Index() {
   return (
     <main className="company-page bg-ink font-sans text-paper">
       <Cursor />
+      <div className="scroll-hud mono" aria-hidden="true"><span>{String(Math.round(progress * 100)).padStart(3, "0")}%</span><div className="scroll-rail"><div className="scroll-thumb" style={{ top: `${progress * 100}%` }} />{Array.from({ length: 11 }, (_, i) => <i key={i} style={{ top: `${i * 10}%` }} />)}</div><span>SCROLL</span></div>
       <div className="progress-bar" style={{ transform: `scaleX(${progress})`, width: "100%" }} />
       <a href="#robertcore" className="sr-only focus:not-sr-only focus:fixed focus:left-5 focus:top-5 focus:z-[100] focus:bg-paper focus:p-4 focus:text-ink">Skip to content</a>
 
