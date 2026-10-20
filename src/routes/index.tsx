@@ -4,6 +4,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowDown, ArrowUpRight, Plus, X } from "lucide-react";
 import { Scramble } from "@/components/Scramble";
 import { OriginPanel } from "@/components/OriginPanel";
+import { Cursor } from "@/components/Cursor";
 import issVideo from "@/assets/iss-video.mp4.asset.json";
 import goddardImg from "@/assets/goddard.jpg.asset.json";
 import oppenheimerImg from "@/assets/oppenheimer.jpg.asset.json";
@@ -157,6 +158,7 @@ function Index() {
 
   return (
     <main className="company-page bg-ink font-sans text-paper">
+      <Cursor />
       <div className="progress-bar" style={{ transform: `scaleX(${progress})`, width: "100%" }} />
       <a href="#robertcore" className="sr-only focus:not-sr-only focus:fixed focus:left-5 focus:top-5 focus:z-[100] focus:bg-paper focus:p-4 focus:text-ink">Skip to content</a>
 

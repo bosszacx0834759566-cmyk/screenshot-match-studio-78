@@ -336,3 +336,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; heig
 .portrait-tag { position: absolute; z-index: 2; left: 16px; bottom: 16px; font-size: 10px; letter-spacing: .1em; color: var(--paper); opacity: .85; }
 @media (min-width: 640px) { .founder-portrait { max-width: 340px; } }
 @media (min-width: 768px) { .founder-portrait { max-width: none; margin-inline: 0; } }
+
+/* ===== HUD cursor ===== */
+.cursor-layer { display: none; }
+.has-cursor, .has-cursor * { cursor: none !important; }
+.has-cursor .cursor-layer { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; color: var(--paper); }
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; will-change: transform; }
+.cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: currentColor; }
+.cursor-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; }
+.cursor-ring::before { content: ""; position: absolute; inset: 0; border: 1px solid currentColor; border-radius: 50%; transition: inset .35s var(--ease-out), border-radius .35s var(--ease-out); }
+.cursor-ring.hot::before { inset: -14px; border-radius: 0; }
+.cursor-label { position: absolute; left: 44px; top: 40px; font-size: 9px; letter-spacing: .12em; white-space: nowrap; opacity: .7; }
